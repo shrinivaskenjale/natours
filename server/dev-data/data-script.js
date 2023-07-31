@@ -6,7 +6,9 @@ const Tour = require("../models/tour-model");
 const User = require("../models/user-model");
 const Review = require("../models/review-model");
 
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+  dbName: "natours",
+});
 
 async function importDataToDB() {
   try {

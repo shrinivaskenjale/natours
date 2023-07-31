@@ -10,7 +10,9 @@ require("dotenv").config({ path: path.join(__dirname, "config.env") });
 const mongoose = require("mongoose");
 const app = require("./app");
 
-mongoose.connect(process.env.DATABASE);
+mongoose.connect(process.env.DATABASE, {
+  dbName: "natours",
+});
 
 const PORT = process.env.PORT || 8000;
 
