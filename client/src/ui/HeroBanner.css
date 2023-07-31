@@ -1,0 +1,25 @@
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(rgb(34, 197, 94, 0.7), rgb(0, 0, 0, 0.7)),
+    url("/images/banner.jpeg") center/cover no-repeat;
+  color: var(--green-50);
+  display: grid;
+  place-items: center;
+  padding: 3rem 2rem;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.hero .heading {
+  text-transform: uppercase;
+}
+.hero .subheading {
+  max-width: 35rem;
+}
