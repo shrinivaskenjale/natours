@@ -1,0 +1,26 @@
+.tour-filter {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  background-color: var(--gray-50);
+  box-shadow: var(--light-shadow);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.filter-form {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); */
+  display: flex;
+  gap: 1rem 2rem;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+option {
+  padding: 1rem;
+}

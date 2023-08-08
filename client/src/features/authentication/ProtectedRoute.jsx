@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { useUser } from "./useUser";
+import Spinner from "../../ui/Spinner";
 
 const ProtectedRoute = ({ children }) => {
   // 1. Get authenticated user
@@ -11,7 +12,7 @@ const ProtectedRoute = ({ children }) => {
       //   <FullPage>
       //     <Spinner />
       //   </FullPage>
-      <p>Loading...</p>
+      <Spinner />
     );
 
   // 3. If there is no authenticated user, redirect to /login

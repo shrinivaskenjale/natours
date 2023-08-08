@@ -1,5 +1,6 @@
 import { useLogin } from "./useLogin";
 import "./LoginForm.css";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const { login, isLoading } = useLogin();
@@ -53,6 +54,9 @@ const LoginForm = () => {
           <button className="button" disabled={isLoading}>
             Login
           </button>
+        </div>
+        <div className="form-links">
+          <Link to="/signup">Create New Account</Link>
         </div>
       </form>
     </div>

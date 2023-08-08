@@ -225,12 +225,22 @@ input[type="file"] {
   justify-content: center;
 }
 
-.input {
+.form-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.form-links a:hover {
+  text-decoration: underline;
+}
+
+input.input,
+select.select {
   padding: 0.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--gray-200);
 }
-.input::placeholder {
+input.input::placeholder {
   color: var(--gray-300);
 }
 
@@ -247,7 +257,8 @@ input[type="file"] {
   transition: var(--transition);
 }
 
-.input:focus,
+select.select:focus,
+input.input:focus,
 .button:focus {
   outline: 2px solid var(--green-500);
 }

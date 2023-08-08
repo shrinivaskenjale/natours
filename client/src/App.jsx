@@ -10,6 +10,8 @@ import Account from "./pages/Account";
 import ProtectedRoute from "./features/authentication/ProtectedRoute";
 import Home from "./pages/Home";
 import Tours from "./pages/Tours";
+import Signup from "./pages/Signup";
+import UserBookings from "./pages/UserBookings";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "bookings/me",
+        element: <UserBookings />,
       },
       {
         path: "account",

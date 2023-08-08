@@ -1,7 +1,7 @@
 import request from "./axios";
 
-export const getTours = async () => {
-  const response = await request.get(`/tours`);
+export const getTours = async ({ queryString }) => {
+  const response = await request.get(`/tours?${queryString}`);
   return response?.data?.data?.tours;
 };
 

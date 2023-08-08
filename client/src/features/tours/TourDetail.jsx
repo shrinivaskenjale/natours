@@ -2,7 +2,7 @@ import "./TourDetail.css";
 import { Link, useParams } from "react-router-dom";
 import { useTour } from "./useTour";
 import Map from "./Map";
-import { IMAGE_BASE_URL, STATIC_BASE_URL } from "../../utils/constants";
+import { IMAGE_BASE_URL } from "../../utils/constants";
 import { useEffect, useState } from "react";
 import { useUser } from "../authentication/useUser";
 import { useCheckout } from "../bookings/useCheckout";
@@ -13,12 +13,13 @@ import {
   HiUserGroup,
 } from "react-icons/hi2";
 import { FaClock, FaLocationDot, FaStar } from "react-icons/fa6";
+import Spinner from "../../ui/Spinner";
 
 const TourDetail = () => {
   const { slug } = useParams();
   const { tour, isLoading } = useTour(slug);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Spinner />;
   return (
     <>
       <TourHeader tour={tour} />
@@ -27,7 +28,7 @@ const TourDetail = () => {
 
       <TourPictures tour={tour} />
 
-      <Map />
+      <Map locations={tour.locations} />
 
       <TourReviews tour={tour} />
 

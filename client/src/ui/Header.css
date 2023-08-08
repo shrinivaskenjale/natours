@@ -50,6 +50,9 @@
   padding: 1rem 1rem;
   cursor: default;
 }
+.user-menu a {
+  white-space: nowrap;
+}
 
 .user-menu a:hover {
   color: var(--green-500);

@@ -11,7 +11,7 @@ const createCheckoutSession = catchAsync(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
 
-    success_url: `${process.env.CLIENT_BASE_URL}/`,
+    success_url: `${process.env.CLIENT_BASE_URL}/bookings/me`,
     cancel_url: `${process.env.CLIENT_BASE_URL}/tours/${tour.slug}`,
     customer_email: req.user.email,
     client_reference_id: req.body.tourId,
@@ -83,6 +83,20 @@ const handleStripeEvents = (req, res) => {
   // Note - Responses sent from this middleware are sent to Stripe servers.
 };
 
+const getMyBookings = catchAsync(async (req, res, next) => {
+  const bookings = await Booking.find({ user: req.user._id })
+    .sort("-createdAt")
+    .populate("tour");
+
+  res.status(200).json({
+    status: "success",
+    results: bookings.length,
+    data: {
+      bookings,
+    },
+  });
+});
+
 const getAllBookings = catchAsync(async (req, res, next) => {});
 const getOneBooking = catchAsync(async (req, res, next) => {});
 const createBooking = catchAsync(async (req, res, next) => {});
@@ -90,6 +104,7 @@ const updateBooking = catchAsync(async (req, res, next) => {});
 const deleteBooking = catchAsync(async (req, res, next) => {});
 
 module.exports = {
+  getMyBookings,
   createCheckoutSession,
   handleStripeEvents,
   getOneBooking,

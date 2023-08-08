@@ -1,0 +1,8 @@
+.booking-list {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 3rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
+}

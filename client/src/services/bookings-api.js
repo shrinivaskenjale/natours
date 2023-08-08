@@ -7,3 +7,8 @@ export const checkout = async ({ tourId }) => {
 
   return response.data.data.session.url;
 };
+
+export const getMyBookings = async () => {
+  const response = await request.get("/bookings/me");
+  return response.data.data.bookings;
+};

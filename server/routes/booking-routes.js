@@ -10,6 +10,8 @@ router.post(
   bookingController.createCheckoutSession
 );
 
+router.get("/me", bookingController.getMyBookings);
+
 router.use(authController.restrictTo("admin", "lead-guide"));
 
 router

@@ -51,6 +51,9 @@ const Header = () => {
                     <li>
                       <Link to="/account">Account</Link>
                     </li>
+                    <li>
+                      <Link to="/bookings/me">My bookings</Link>
+                    </li>
 
                     <li>
                       <span className="logout" onClick={logout}>
