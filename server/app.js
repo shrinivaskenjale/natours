@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const rateLimit = require("express-rate-limit");
+// const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
@@ -28,6 +28,7 @@ app.use(cors({ origin: process.env.CLIENT_BASE_URL, credentials: true }));
 // Preflight requests use options http method which does not comes under use method.
 app.options("*", cors());
 
+/*
 if (process.env.NODE_ENV !== "development") {
   // Limit requests to /api/* endpoints in production
   app.use(
@@ -42,6 +43,7 @@ if (process.env.NODE_ENV !== "development") {
     })
   );
 }
+*/
 
 // app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
