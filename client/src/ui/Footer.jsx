@@ -22,7 +22,7 @@ const Footer = () => {
             <a href="#">Contact</a>
           </li>
         </ul>
-        <div className="copyright">© 2023 by Jonas Schmedtmann</div>
+        <div className="copyright">© 2023 by Shrinivas Kenjale</div>
       </div>
     </footer>
   );
