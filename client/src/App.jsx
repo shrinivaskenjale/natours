@@ -15,9 +15,6 @@ import UserBookings from "./pages/UserBookings";
 
 const queryClient = new QueryClient();
 
-// NOTE - in pug block content is <Outlet/> of app layout
-// base AppLayout
-
 const router = createBrowserRouter([
   {
     element: <AppLayout />,

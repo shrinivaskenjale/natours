@@ -2,7 +2,6 @@ import "./Map.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const Map = ({ locations }) => {
-  console.log(locations);
   return (
     <section>
       <MapContainer

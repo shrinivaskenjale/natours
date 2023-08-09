@@ -18,7 +18,7 @@ const { handleStripeEvents } = require("./controllers/booking-controller");
 
 const app = express();
 
-app.enable("trust proxy");
+// app.enable("trust proxy");
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
