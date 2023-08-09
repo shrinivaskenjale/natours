@@ -13,8 +13,6 @@ const LoginForm = () => {
     login({ email, password });
   };
 
-  //   NOTE - remove default values
-
   return (
     <div className="form-container">
       <h2 className="form-heading">Log in</h2>
@@ -31,7 +29,6 @@ const LoginForm = () => {
             placeholder="you@example.com"
             required="required"
             disabled={isLoading}
-            defaultValue="aarav@example.com"
           />
         </div>
         <div className="form-group">
@@ -47,7 +44,6 @@ const LoginForm = () => {
             required="required"
             minLength="8"
             disabled={isLoading}
-            defaultValue="newpassword"
           />
         </div>
         <div className="form-actions">
