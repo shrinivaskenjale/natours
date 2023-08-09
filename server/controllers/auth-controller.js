@@ -49,7 +49,7 @@ const signup = catchAsync(async (req, res, next) => {
     // Cookie can't be modiefied by browser
     httpOnly: true,
     // Cookie should be used with HTTPS only
-    secure: process.env.NODE_ENV === "production", // Not necessary that production app is HTTPS
+    // secure: process.env.NODE_ENV === "production", // Not necessary that production app is HTTPS
     // secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
   });
 
@@ -87,7 +87,7 @@ const login = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
   });
   user.password = undefined;
   res.status(200).json({
@@ -294,7 +294,7 @@ const resetPassword = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
   });
   user.password = undefined;
   res.status(200).json({
@@ -340,7 +340,7 @@ const updatePassword = catchAsync(async (req, res, next) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    // secure: process.env.NODE_ENV === "production",
   });
 
   req.user.password = undefined;
