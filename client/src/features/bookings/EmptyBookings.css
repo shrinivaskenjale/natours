@@ -1,0 +1,12 @@
+.empty-bookings {
+  width: 90vw;
+  max-width: 400px;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-bookings p {
+  font-size: 1.5rem;
+}
