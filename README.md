@@ -2,6 +2,10 @@
 
 https://natours-psi-eight.vercel.app
 
+Use following credentials to log in:  
+Email: **john@example.com**  
+Password: **test1234**
+
 # Description
 
 Tour booking application
