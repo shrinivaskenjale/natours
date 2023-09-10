@@ -19,6 +19,11 @@ const signup = catchAsync(async (req, res, next) => {
     return next(new AppError("Passwords do not match", 400));
   }
 
+  const user = await User.findOne({ email });
+  if (user) {
+    return next(new AppError("User with given email id already exists.", 400));
+  }
+
   // Passwords should be encrypted before saving them to database everytime password field is modified.
   // Salt length adds random string of given length before hashing so that 2 same passwords do not generate same hash.
   password = await bcrypt.hash(password, 12);
@@ -221,6 +226,7 @@ const forgotPassword = catchAsync(async (req, res, next) => {
   }
 
   // Generate random reset token.
+  // This is sync version, async version is available
   const resetToken = crypto.randomBytes(32).toString("hex");
   // If we store reset token as it is in DB, if DB data is leaked, attacker can use reset token to reset the password and get access to account. So just like password, we should store it by encrypting.
   // It is not necessary to use strong encryption for reset tokens.
@@ -236,6 +242,7 @@ const forgotPassword = catchAsync(async (req, res, next) => {
   // Sending an email can fail. If it fails, we don't just want to send error message but handle few things. So we need to handle errors here.
   // Currently no page implemented on client.
   try {
+    // This server URL to which user has to send POST request as there is no front-end page for password reset form yet. After implementing password reset form, change this to point to front-end password change page.
     const resetURL = `${req.protocol}://${req.get(
       "host"
     )}/api/v1/users/reset-password/${resetToken}`;
